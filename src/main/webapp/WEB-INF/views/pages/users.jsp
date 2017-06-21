@@ -23,36 +23,42 @@
             </c:otherwise>
         </c:choose>
         
-        
-	<form:form modelAttribute="user"
-		action="${formAction}" method="${formMethod}">
-		<div>
-			<label>Name:</label>
-			<form:input path="firstName" id="firstName" type="text" />
+        <div class="container-fluid">
+            
+            <form:form modelAttribute="user"
+                    action="${formAction}" method="${formMethod}" class="col-sm-6">
+                    <div class="form-group row">
+                            <label>Name:</label>
+                            <form:input class="form-control" path="firstName" id="firstName" type="text" />
+                    </div>
 
-		</div>
+                    <div class="form-group row">
+                            <label>Last Name:</label>
+                            
+                            <form:input class="form-control" path="lastName" id="lastName" type="text" />
+                    </div>
 
-		<div>
-			<label>Last Name:</label>
-			<form:input path="lastName" id="lastName" type="text" />
-		</div>
+                    <div class="form-group row">
+                            <label>CPF:</label>
+                            <form:input class="form-control" path="cpf" id="cpf" type="text" />
+                    </div>
 
-		<div>
-			<label>CPF:</label>
-			<form:input path="cpf" id="cpf" type="text" />
-		</div>
-
-		<div>
-			<button type="submit">Save</button>
-		</div>
-	</form:form>
+                    <div class="form-group row">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+Save</button>
+                    </div>
+            </form:form>
+            
+        </div>
 
 	<h1>List of User</h1>
-	<table>
+        <table class="table">
 		<tr>
 			<td>Last Name</td>
 			<td>First Name</td>
 			<td>CPF</td>
+                        <th></th>
+                        <th></th>
 		</tr>
 		
 		<c:forEach items="${users}" var="user">
