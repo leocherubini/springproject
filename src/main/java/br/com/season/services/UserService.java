@@ -6,23 +6,17 @@
 
 package br.com.season.services;
 
-import br.com.season.entities.User;
 import java.util.List;
+
+import br.com.season.entities.User;
+import br.com.season.generic.JPAGeneric;
 
 /**
  *
  * @author dc01acjava6
  */
-public interface UserService {
+public interface UserService extends JPAGeneric<User> {
     
-    User findById(Integer id);
-    
-    List<User> findAll();
-    
-    void save(User user);
-    
-    User update(Integer userId, User user);
-    
-    void delete(User user);
+    User findByCpf(String cpf);
     
 }

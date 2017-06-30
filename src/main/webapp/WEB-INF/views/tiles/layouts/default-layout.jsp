@@ -6,9 +6,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><tiles:getAsString name="title"></tiles:getAsString></title>
         
-        <link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css"/>
-        <link rel="stylesheet" href="webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
       
     </head>
     
@@ -30,8 +30,8 @@
             <tiles:insertAttribute name="footer" />
         </footer>
         </div>
-        <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
-        <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/webjars/jquery/3.2.1/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
         
     </body>
     

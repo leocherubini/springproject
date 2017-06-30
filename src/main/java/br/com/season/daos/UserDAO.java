@@ -8,6 +8,8 @@ public interface UserDAO {
 
 	User findById(Integer id);
 	
+	User findByCpf(String cpf);
+	
 	List<User> findAll();
 	
 	void save(User user);

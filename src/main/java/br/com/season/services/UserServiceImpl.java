@@ -23,35 +23,68 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO userDAO;
-	
-    List<User> users = new ArrayList<User>();
-    
-    @Override
-    public User findById(Integer id) {
-        return userDAO.findById(id);
-    }
-
-    @Override
-    public List<User> findAll() {
-        return users;
-    }
-
-    @Override
-    public void save(User user) {
-        userDAO.save(user);
-    }
-
-    @Override
-    public User update(Integer userId, User user) {
-        User foundUser = findById(userId);
-        BeanUtils.copyProperties(user, foundUser, "id");
-        userDAO.update(foundUser);
-        return foundUser;
-    }
 
 	@Override
-	public void delete(User user) {
-		userDAO.delete(user);		
+	public User findById(Integer id) {
+		return userDAO.findById(id);
 	}
+
+	@Override
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return userDAO.findAll();
+	}
+
+	@Override
+	public void save(User user) {
+		userDAO.save(user);
+		
+	}
+
+	@Override
+	public User update(User user) {
+		userDAO.update(findById(user.getId()));
+		return user;
+	}
+
+	@Override
+	public void delete(User t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User findByCpf(String cpf) {
+		// TODO Auto-generated method stub
+		return userDAO.findByCpf(cpf);
+	}
+    
+//    @Override
+//    public User findById(Integer id) {
+//        return userDAO.findById(id);
+//    }
+//
+//    @Override
+//    public List<User> findAll() {
+//        return users;
+//    }
+//
+//    @Override
+//    public void save(User user) {
+//        userDAO.save(user);
+//    }
+//
+//    @Override
+//    public User update(Integer userId, User user) {
+//        User foundUser = findById(userId);
+//        BeanUtils.copyProperties(user, foundUser, "id");
+//        userDAO.update(foundUser);
+//        return foundUser;
+//    }
+//
+//	@Override
+//	public void delete(User user) {
+//		userDAO.delete(user);		
+//	}
     
 }
