@@ -74,6 +74,16 @@ public class UsersController {
         return "users";
     }
     
+    @RequestMapping("/find-by")
+    public String findBy(@RequestParam("lastName") String lastName, @RequestParam("firstName") String firstName,
+    		@RequestParam("cpf") String cpf, ModelMap map) {
+
+    	List<User> users = userService.findBy(lastName, firstName, cpf);
+    	map.addAttribute("user", new User());
+    	map.addAttribute("users", users);
+    	return "users";
+    }
+    
     @RequestMapping(value="/{userId}", method=RequestMethod.PUT)
     public ModelAndView update(@PathVariable("userId") Integer userId, User user) {
         ModelAndView view = new ModelAndView("user");
@@ -88,5 +98,17 @@ public class UsersController {
     @RequestMapping("/getCpf/{cpf}")
     public @ResponseBody User findByCpf(@PathVariable String cpf) {
     	return userService.findByCpf(cpf);
+    }
+
+    @RequestMapping("/delete/{userId}")
+    public String delete(@PathVariable("userId") Integer userId, ModelMap map) {
+
+    	User found = userService.findById(userId);
+    	if (found != null) {
+    		userService.delete(found);
+    	}
+    	map.addAttribute("user", new User());
+    	map.addAttribute("users", userService.findAll());
+    	return "users";
     }
 }
