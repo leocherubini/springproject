@@ -3,6 +3,7 @@
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -26,7 +27,10 @@
             </c:otherwise>
         </c:choose>
         
-        <div class="container-fluid">
+        <sec:authorize access="hasRole('ADMIN')">
+        
+        
+        <div class="container">
             
             <form:form modelAttribute="user"
                     action="${formAction}" method="${formMethod}" class="col-sm-6">
@@ -45,6 +49,16 @@
                             <label>CPF:</label>
                             <form:input class="form-control" path="cpf" id="cpf" type="text" />
                     </div>
+                    
+                    <div class="form-group row">
+                            <label><spring:message code="user.username" /></label>
+                            <form:input class="form-control" path="username" id="username" type="text" />
+                    </div>
+                    
+                    <div class="form-group row">
+                            <label><spring:message code="user.password" /></label>
+                            <form:input class="form-control" path="password" id="password" type="password" />
+                    </div>
 
                     <div class="form-group row">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>
@@ -53,6 +67,7 @@ Save</button>
             </form:form>
             
         </div>
+        </sec:authorize>
 
 	<h1>List of User</h1>
         <table class="table">
