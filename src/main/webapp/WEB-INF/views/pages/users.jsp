@@ -59,6 +59,11 @@
                             <label><spring:message code="user.password" /></label>
                             <form:input class="form-control" path="password" id="password" type="password" />
                     </div>
+                    
+                    <div class="form-group row">
+                            <label>Profile</label>
+                            <form:select items="${profiles}" path="userProfiles" multiple="true"></form:select>
+                    </div>
 
                     <div class="form-group row">
                         <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>

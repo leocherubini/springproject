@@ -27,7 +27,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<User> findAll() {
-		return em.createQuery("SELECT u FROM User", User.class).getResultList();
+		return em.createQuery("SELECT u FROM User u", User.class).getResultList();
 	}
 
 	@Override
@@ -100,6 +100,11 @@ public class UserDAOImpl implements UserDAO {
 		}
 		
 		return user;
+	}
+
+	@Override
+	public void flush() {
+		em.flush();		
 	}
 
 }

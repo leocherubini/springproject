@@ -2,6 +2,7 @@ package br.com.season.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -40,6 +41,7 @@ public class SpringProjectWebSecurity extends WebSecurityConfigurerAdapter {
 		return authenticationProvider;
 	}
 
+	@Bean
 	private PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}

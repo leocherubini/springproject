@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.season.entities.User;
+import br.com.season.entities.UserProfile;
+import br.com.season.entities.UserProfileType;
 import br.com.season.services.UserService;
 
 @Controller
@@ -35,6 +37,7 @@ public class UsersController {
         List<User> users = userService.findAll();
         map.addAttribute("user", user);
         map.addAttribute("users", users);
+        map.addAttribute("profiles", UserProfileType.values());
         return model;
     }
 
